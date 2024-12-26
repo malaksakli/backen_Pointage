@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Employés</title>
+</head>
+<body>
+
+<h2>Liste des Employés</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Matricule</th>
+            <th>Nom et Prénom</th>
+            <th>Nom du Chef</th>
+            <th>Classe</th>
+            <th>Service</th>
+            <th>Date de Naissance</th>
+            <th>Genre</th>
+            <th>Etat Civil</th>
+            <th>Type de Contrat</th>
+            <th>Mode de Paiement</th>
+            <th>Date de Recrutement</th>
+            <th>Ancienneté</th>
+            <th>Test</th>
+            <th>Banque</th>
+            <th>RIB</th>
+            <th>Fin du Contrat</th>
+            <th>Quitte le</th>
+            <th>Alerte</th>
+            <th>Remarque</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Pour chaque employé dans la liste "employees", afficher une ligne -->
+        <tr th:each="employe : ${employees}">
+            <td th:text="${employe.matr}">Matricule</td> <!-- Affiche le matricule -->
+            <td th:text="${employe.nom_et_prenom_employee}">Nom et Prénom</td> <!-- Affiche le nom et prénom -->
+            <td th:text="${employe.nom_de_chef != null ? employe.nom_de_chef.name() : 'N/A'}">Nom du Chef</td> <!-- Affiche le nom du chef, si null affiche "N/A" -->
+            <td th:text="${employe.classe != null ? employe.classe.name() : 'N/A'}">Classe</td> <!-- Classe -->
+            <td th:text="${employe.serv != null ? employe.serv.name() : 'N/A'}">Service</td> <!-- Service -->
+            <td th:text="${#dates.format(employe.date_nais, 'yyyy-MM-dd')}">Date de Naissance</td> <!-- Format de la date de naissance -->
+            <td th:text="${employe.sf != null ? employe.sf.name() : 'N/A'}">Genre</td> <!-- Genre -->
+            <td th:text="${employe.etat != null ? employe.etat.name() : 'N/A'}">Etat Civil</td> <!-- Etat civil -->
+            <td th:text="${employe.type_de_contrat != null ? employe.type_de_contrat.name() : 'N/A'}">Type de Contrat</td> <!-- Type de contrat -->
+            <td th:text="${employe.mode_pay != null ? employe.mode_pay.name() : 'N/A'}">Mode de Paiement</td> <!-- Mode de paiement -->
+            <td th:text="${#dates.format(employe.date_recr, 'yyyy-MM-dd')}">Date de Recrutement</td> <!-- Date de recrutement -->
+            <td th:text="${employe.anc}">Ancienneté</td> <!-- Ancienneté -->
+            <td th:text="${employe.test ? 'Oui' : 'Non'}">Test</td> <!-- Test -->
+            <td th:text="${employe.bank}">Banque</td> <!-- Banque -->
+            <td th:text="${employe.rib}">RIB</td> <!-- RIB -->
+            <td th:text="${#dates.format(employe.fin_contr, 'yyyy-MM-dd')}">Fin du Contrat</td> <!-- Fin du contrat -->
+            <td th:text="${#dates.format(employe.quitte_le, 'yyyy-MM-dd')}">Quitte le</td> <!-- Quitte le -->
+            <td th:text="${employe.alerte}">Alerte</td> <!-- Alerte -->
+            <td th:text="${employe.remarque}">Remarque</td> <!-- Remarque -->
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

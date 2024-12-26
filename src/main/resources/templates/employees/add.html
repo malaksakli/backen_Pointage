@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un Employé</title>
+</head>
+<body>
+
+<h2>Ajouter un Employé</h2>
+
+<form th:action="@{/api/employees/add}" th:object="${employee}" method="post">
+    <label for="nom_et_prenom_employee">Nom et Prénom:</label>
+    <input type="text" th:field="*{nom_et_prenom_employee}" /><br>
+
+    <label for="matr">Matricule:</label>
+    <input type="text" th:field="*{matr}" /><br>
+
+    <!-- Ajoute d'autres champs selon ton modèle -->
+
+    <button type="submit">Ajouter</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<table>
+    <thead>
+        <tr>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Retard</th>
+            <th>Absence Non Justifiée</th>
+            <th>Absence Court Terme</th>
+            <th>Absence Long Terme</th>
+            <th>Autorisation</th>
+            <th>Retard Autorisé</th>
+            <th>Congé Annuel</th>
+            <th>Mise à Pied</th>
+            <th>Jour Férié</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Itérez à travers les pointages -->
+        <tr th:each="pointage : ${pointages}">
+            <td th:text="${pointage.employee.matr}"></td>
+            <td th:text="${pointage.employee.nom}"></td>
+            <td th:text="${pointage.ret}"></td>
+            <td th:text="${pointage.absNj}"></td>
+            <td th:text="${pointage.absCt}"></td>
+            <td th:text="${pointage.absLt}"></td>
+            <td th:text="${pointage.absAut}"></td>
+            <td th:text="${pointage.retEtAut}"></td>
+            <td th:text="${pointage.cgAnn}"></td>
+            <td th:text="${pointage.maPied}"></td>
+            <td th:text="${pointage.jf}"></td>
+        </tr>
+    </tbody>
+</table>
